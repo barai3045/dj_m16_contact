@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="flex justify-center">
+
+
+    <div class="w-3/4">
+
+
+
+        <h1>Contasts</h1>
+        <table class="table border bg-gray-300">
+            <thead>
+                <tr>
+                    <th class="border border-gray-800 px-2">SL</th>
+                    <th class="border border-gray-800 px-2">First Name</th>
+                    <th class="border border-gray-800 px-2">Email</th>
+                    <th class="border border-gray-800 px-2">Phone Number</th>
+                    <th class="border border-gray-800 px-2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                <tr>
+                    <td class="border border-gray-800 px-2">{{ forloop.counter }}</td>
+                    <td class="border border-gray-800 px-2">{{ contact.first_name }}</td>
+                    <td class="border border-gray-800 px-2">{{ contact.email }}</td>
+                    <td class="border border-gray-800 px-2">{{ contact.phone_number }}</td>
+                    
+                    <td class="border border-gray-800 px-2">
+                        <a href="{% url 'view_contact' contact.pk %}">View</a>
+                        
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+{% endblock %}

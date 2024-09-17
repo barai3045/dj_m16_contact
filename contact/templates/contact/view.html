@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="flex justify-center">
+
+
+    <div class="w-3/4">
+
+
+
+        <h1 class="text-2xl">Contact view</h1>
+        <a href="{% url 'update_contact' contact.id %}" class="bg-gray-600 hover:bg-blue-500 rounded px-3 text-white">Update</a>
+        <a href="{% url 'delete_contact' contact.id %}" class="bg-gray-600 hover:bg-red-500 rounded px-3 text-white">Delete</a>
+        <table class="table border bg-gray-300">
+    
+            <tbody>
+                
+                <tr>
+                    <th class="border border-gray-800 px-2">First Name</th>
+                    <td class="border border-gray-800 px-2">{{ contact.first_name }}</td>
+                </tr>
+                <tr>
+                    <th class="border border-gray-800 px-2">Last Name</th>
+                    <td class="border border-gray-800 px-2">{{ contact.last_name }}</td>
+                </tr>
+                <tr>
+                    <th class="border border-gray-800 px-2">Email</th>
+                    <td class="border border-gray-800 px-2">{{ contact.email }}</td>
+                </tr>
+                <tr>
+                    <th class="border border-gray-800 px-2">Phone Number</th>
+                    <td class="border border-gray-800 px-2">{{ contact.phone_number }}</td>
+                </tr>
+                <tr>
+                    <th class="border border-gray-800 px-2">Address</th>
+                    <td class="border border-gray-800 px-2">{{ contact.address }}</td>
+                </tr>
+               
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+{% endblock %}

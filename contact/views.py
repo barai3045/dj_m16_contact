@@ -2,10 +2,16 @@ from django.shortcuts import get_object_or_404, render, redirect
 
 from .forms import ContactForm
 from .models import Contact
+from django.db.models import Q
 
 # Create your views here.
 def home(request):
     contacts = Contact.objects.all()
+    query_dict = request.GET
+    query = query_dict.get('query')
+    if query is not None:
+        contacts = Contact.objects.filter(Q(first_name__contains=request.GET['query'])|Q( email__contains=request.GET['query']))
+
     context = {
         "contacts": contacts
     }
